@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  <head>
+	  	<title>Clientes</title>
+	  	<meta charset="utf-8">
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	  </head>
+	  <body>
+	  <header>
+	  	  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center" style="font-family: fantasy;">Betha Sistemas</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="clientes" class="waves-effect waves-light btn">Listar clientes<i class="material-icons left">featured_play_list</i></a></li>
+      </ul>
+    </div>
+  </nav>
+	  
+	  </header>
+	  
+	  <h5 style="text-align: center; font-family: fantasy;">Cadastro de clientes</h5>
+	  <hr>	
+	  <form method="post" class="container">
+	  <input type="text" value="" ng-model="name" name="nome" class="form-control" placeholder="NOME:">
+	  <input type="text"  value="" name="cpfcnpj" class="form-control" placeholder="CPF/CNPJ:">
+	  <input type="text" value="" name="endereco" class="form-control" placeholder="ENDEREÇO:">
+	  <input type="text" value="" name="telefone" class="form-control" placeholder="TELEFONE:">
+		<button type="submit" class="waves-effect waves-light btn">Salvar</button>
+	  </form>
+	    
+	  	  </body>
+</html>

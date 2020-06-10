@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  <head>
+	  	<title>Projeto WEB</title>
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
+	  </head>
+	 <meta charset="utf-8">
+<body>
+	<header>
+		 <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center" style="font-family: fantasy;">Betha Sistemas</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+       <li><a href="/clientes" class="waves-effect waves-light btn">Lista de Clientes<i class="material-icons left">add_circle_outline</i></a></li>
+      </ul>
+    </div>
+  </nav>
+	</header>
+	<h5 style="text-align: center; font-family: fantasy;">Detalhes Clientes</h5>
+	<table class="container">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>CPF/CNPJ</th>
+			<th>Endereço principal</th>
+			<th>Telefone principal</th>
+		</tr>
+		<tbody>
+		<tr  th:each="cliente : ${cliente}">
+		<td><span th:text="${cliente.nome}"></span></td>
+			<td><span th:text="${cliente.cpfcnpj}"></span></td>
+			<td><span th:text="${cliente.endereco}"></span></td>
+			<td><span th:text="${cliente.telefone}"></span></td>
+		</tr>
+		</tbody>
+	</thead>		
+			
+		</table>
+		<br>
+		<h5 class="container">Número/Endereço alternativo</h5>
+		<form method="post" class="container">
+			<input type="text" value="" name="enderecoalternativo" placeholder="Endereço alternativo:">
+			<input type="text" value="" name="numeroalternativo"   placeholder="Número alternativo:">
+			<button type="submit" class="waves-effect waves-light btn">Adicionar</button>
+		</form>
+		<table class="container">
+		<thead>
+			<tr>
+				<th>Endereço alternativo</th>
+				<th>Número alternativo</th>
+				<th>Deletar</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr  th:each="enalternativo: ${enalternativos}">
+			<td><span th:text="${enalternativo.enderecoalternativo}"></span></td>
+			<td><span th:text="${enalternativo.numeroalternativo}"></span></td>
+		    <td><a class="waves-effect waves-light btn-small" th:href="${#mvc.url('CC#deletarENalternativo').arg(0, enalternativo.codigo).build()}"><i class="material-icons left">delete</i></a></td>
+			
+			
+			</tr>
+			</tbody>
+		</table>
+	
+	
+	
+</body>	
+</html>

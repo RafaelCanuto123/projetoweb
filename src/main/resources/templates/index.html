@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  <head>
+	  	<title>Projeto WEB</title>
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
+	  </head>
+	 <meta charset="utf-8">
+<body>
+	<header>
+		 <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Betha Sistemas</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+       <li><a href="/cadastrarCliente" class="waves-effect waves-light btn">Cadastrar Clientes<i class="material-icons left">add_circle_outline</i></a></li>
+      </ul>
+    </div>
+  </nav>
+	</header>
+	<h5 style="text-align: center; font-family: fantasy;">Clientes</h5>
+	<hr>
+	<table class="container">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>CPF/CNPJ</th>
+			<th>Endereço principal</th>
+			<th>Telefone Principal</th>
+			<th>Deletar</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="cliente : ${clientes}">
+			<td><a th:href="${#mvc.url('CC#detalhesCliente').arg(0, cliente.codigo).build()}"><span th:text="${cliente.nome}"></span></a></td>
+			<td><span th:text="${cliente.cpfcnpj}"></span></td>
+			<td><span th:text="${cliente.endereco}"></span></td>
+			<td><span th:text="${cliente.telefone}"></span></td>
+			<td><a class="waves-effect waves-light btn-small" th:href="${#mvc.url('CC#deletarCliente').arg(0, cliente.codigo).build()}"><i class="material-icons left">delete</i></a></td>
+		</tr>
+	</tbody>
+	
+	</table>
+</body>	
+</html>
